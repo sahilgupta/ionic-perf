@@ -6,5 +6,22 @@
 -->
 <ion-view title="{{friend.name}}">
   <ion-content has-header="true" padding="true">
+      <div class="card">
+        <div class="item">
+            <h2>{{friend.name}}</h2>
+            <h3 ng-show="friend.review_count > 0">
+                {{friend.review_count}} <ng-pluralize count="friend.review_count" when="{'1': 'Review', 'other': 'Reviews'}"></ng-pluralize>
+            </h3>
+            <h3 ng-show="friend.review_count === 0">No Reviews Yet</h3>
+            <p>{{friend.address}}</p>
+        </div>
+        <div class="item item-body">
+            <i class="icon ion-ios7-telephone"></i>
+            {{friend.phone}}
+            <p>
+            {{friend.summary}}
+            </p>
+        </div>
+    </div>
   </ion-content>
 </ion-view>

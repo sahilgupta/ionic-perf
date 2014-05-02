@@ -1,8 +1,17 @@
 <ion-view title="Friends">
   <ion-content class="has-header">
     <ion-list>
-      <ion-item ng-repeat="friend in friends" type="item-text-wrap" href="#/tab/friend/{{friend.id}}">
-        {{friend.name}}
+      <ion-item class="item item-thumbnail-left" ng-repeat="friend in friends" type="item-text-wrap" href="#/tab/friend/{{friend.id}}">
+        <img ng-src="http://dummyimage.com/80.png/09f/fff" />
+        <h2><strong>{{friend.name}}</strong></h2>
+        <p>
+            {{friend.address}}<br />{{friend.phone}}<br />
+            <span ng-if="friend.review_count > 0">
+            {{friend.review_count}} <ng-pluralize count="friend.review_count" when="{'1': 'Review',
+            'other': 'Reviews'}">
+            </span>
+            <span ng-if="friend.review_count === 0">No Reviews Yet</span>
+        </p>
       </ion-item>
     </ion-list>
   </ion-content>
